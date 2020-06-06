@@ -1,6 +1,12 @@
 from arcgis.gis import GIS
 from arcgis import features
-import pandas as pd
+import datetime as dt
+
+def now_dt():
+    return str(int(dt.datetime.now().timestamp()))
+
+def createHostedFeatureService():
+    print("Creating Hosted Feature Layer")
 
 #Access the portal
 gis =GIS("https://epressmaps.maps.arcgis.com/",username="epressmaps",password="dThZ7kGIQ6vksmJ6hF3S")
