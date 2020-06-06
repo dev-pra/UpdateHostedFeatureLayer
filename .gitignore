@@ -1,3 +1,6 @@
+#Arcgis
+*.sde
+
 #Vscode
 .vscode/*
 .vscode/settings.json
