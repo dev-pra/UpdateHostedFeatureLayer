@@ -1,5 +1,11 @@
+"""
+Name: createEGDB.py
+Description: Create an enterprise geodatabase and Capital FC
+"""
+#Imports
 import arcpy
 
+#Creates and EGDB in SQL Server
 def createEGDB():
     database_platform = "SQL_Server"
     instance_name = "localhost"
@@ -12,6 +18,7 @@ def createEGDB():
 
     arcpy.CreateEnterpriseGeodatabase_management(database_platform,instance_name,database_name,account_authentication,database_admin,database_admin_password,sde_schema,None,None,None,authorization_file)
 
+#Creates a connection file for the EGDB
 def createEGDBConnectionFile():
     print("Creating connection file in the local directory")
     out_folder_path = "."
@@ -26,6 +33,7 @@ def createEGDBConnectionFile():
     
     arcpy.CreateDatabaseConnection_management(out_folder_path,out_name,database_platform,instance,account_authentication,username,password,save_user_pass,database)
 
+#Creates the FC in the EGDB
 def createCapitalFC():
     print("Creating Capitals Feature Class")
     #Create feature class
@@ -43,10 +51,13 @@ def createCapitalFC():
     arcpy.AddField_management(out_path + "\\" + out_name, field_name="capital", field_type="TEXT", field_precision="", field_scale="", field_length="50", field_alias="Capital", field_is_nullable="NULLABLE", field_is_required="NON_REQUIRED", field_domain="")
     arcpy.AddField_management(out_path + "\\" + out_name, field_name="latitude", field_type="DOUBLE", field_precision="", field_scale="", field_length="", field_alias="Latitude", field_is_nullable="NULLABLE", field_is_required="NON_REQUIRED", field_domain="")
     arcpy.AddField_management(out_path + "\\" + out_name, field_name="longitude", field_type="DOUBLE", field_precision="", field_scale="", field_length="", field_alias="Longitude", field_is_nullable="NULLABLE", field_is_required="NON_REQUIRED", field_domain="")
-    
 
 
+#Main 
 if __name__ == '__main__':
+    #Create EGDB
     createEGDB()
+    #Create Connection File
     createEGDBConnectionFile()
+    #Create the capital FC
     createCapitalFC()
