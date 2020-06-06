@@ -12,6 +12,8 @@ def createEGDB():
 
     arcpy.CreateEnterpriseGeodatabase_management(database_platform,instance_name,database_name,account_authentication,database_admin,database_admin_password,sde_schema,None,None,None,authorization_file)
 
+def createEGDBConnectionFile():
+    
 
 if __name__ == '__main__':
     createEGDB()
