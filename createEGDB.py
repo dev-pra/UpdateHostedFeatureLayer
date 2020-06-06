@@ -26,6 +26,10 @@ def createEGDBConnectionFile():
     
     arcpy.CreateDatabaseConnection_management(out_folder_path,out_name,database_platform,instance,account_authentication,username,password,save_user_pass,database)
 
+def createCapitalFC():
+    print("Creating Capitals Feature Class")
+
 if __name__ == '__main__':
     createEGDB()
     createEGDBConnectionFile()
+    createCapitalFC()
