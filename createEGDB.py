@@ -47,8 +47,8 @@ def createCapitalFC():
     arcpy.CreateFeatureclass_management(out_path,out_name,geometry_type,template,has_m,has_z,spatial_ref)
 
     #Add fields
-    arcpy.AddField_management(out_path + "\\" + out_name, field_name="country", field_type="TEXT", field_precision="", field_scale="", field_length="50", field_alias="Country", field_is_nullable="NULLABLE", field_is_required="NON_REQUIRED", field_domain="")
-    arcpy.AddField_management(out_path + "\\" + out_name, field_name="capital", field_type="TEXT", field_precision="", field_scale="", field_length="50", field_alias="Capital", field_is_nullable="NULLABLE", field_is_required="NON_REQUIRED", field_domain="")
+    arcpy.AddField_management(out_path + "\\" + out_name, field_name="country", field_type="TEXT", field_precision="", field_scale="", field_length="8000", field_alias="Country", field_is_nullable="NULLABLE", field_is_required="NON_REQUIRED", field_domain="")
+    arcpy.AddField_management(out_path + "\\" + out_name, field_name="capital", field_type="TEXT", field_precision="", field_scale="", field_length="8000", field_alias="Capital", field_is_nullable="NULLABLE", field_is_required="NON_REQUIRED", field_domain="")
     arcpy.AddField_management(out_path + "\\" + out_name, field_name="latitude", field_type="DOUBLE", field_precision="", field_scale="", field_length="", field_alias="Latitude", field_is_nullable="NULLABLE", field_is_required="NON_REQUIRED", field_domain="")
     arcpy.AddField_management(out_path + "\\" + out_name, field_name="longitude", field_type="DOUBLE", field_precision="", field_scale="", field_length="", field_alias="Longitude", field_is_nullable="NULLABLE", field_is_required="NON_REQUIRED", field_domain="")
 
